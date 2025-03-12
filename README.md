@@ -13,7 +13,7 @@ This project provides a tool to visualize Solana account transactions. It fetche
 ## Installation
 
 ```bash
-git clone https://github.com/paoloechoes/solana-crawler.git && cd solana-crawler && chmod +x ./install && ./install.sh
+git clone https://github.com/paoloechoes/solana-crawler.git && cd solana-crawler && chmod +x ./install.sh && ./install.sh
 ```
 
 ## Installation (Manual)
