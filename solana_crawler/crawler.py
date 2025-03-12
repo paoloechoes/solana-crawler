@@ -16,13 +16,14 @@ def main():
     )
 
     parser.add_argument("address", help="Solana Address")
+    parser.add_argument("-n", "--number", help="Number of transactions to display.")
     args = parser.parse_args()
 
     server_thread = threading.Thread(target=start_server)
     server_thread.daemon = True
     server_thread.start()
 
-    webbrowser.open(f"http://localhost:8000/{args.address}")
+    webbrowser.open(f"http://localhost:8000/{args.address}{'?num=' + args.number if args.number else ''}")
 
     server_thread.join()
 
