@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Transaction Graph</title>
+    <!-- Include vis-network library -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('ui', path='graph.js') }}"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="graph"></div>
+    <div class="controls">
+      <button id="toggle-button">Dark Mode</button>
+      <label>
+        <input type="checkbox" id="toggleIn" checked />
+        Show IN Transactions
+      </label>
+      <label>
+        <input type="checkbox" id="toggleOut" checked />
+        Show OUT Transactions
+      </label>
+      |
+      <span id="loadedEdges"></span>
+      |
+      <span id="loadedNodes"></span>
+      |
+      <span id="selectedNode">Selected node: <a></a></span>
+      <span id="viewOnSolscan"><a></a></span>
+    </div>
+    <table id="transactionTable">
+      <thead>
+        <tr>
+          <th>Block Time</th>
+          <th>From Address</th>
+          <th>To Address</th>
+          <th>Token Address</th>
+          <th>Amount</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        initGraph(
+          {{ nodes | tojson }},
+          {{ edges | tojson }},
+          {{ df_in | tojson }},
+          {{ df_out | tojson }}
+        );
+      });
+    </script>
+  </body>
+</html>

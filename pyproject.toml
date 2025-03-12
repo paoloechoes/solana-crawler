@@ -1,0 +1,48 @@
+[project]
+name = "solana-crawler"
+version = "0.1.0"
+description = "provides a tool to visualize Solana account transactions"
+authors = [
+    {name = "Paolo Anzani",email = "anzanipaolo.enquires@gmail.com"}
+]
+readme = "README.md"
+license = { file = "./LICENSE.txt" }
+requires-python = ">=3.13"
+dependencies = [
+    "free-solscan-api @ https://github.com/paoloechoes/free-solscan-api/releases/download/0.0.2/free_solscan_api-0.0.2-py3-none-any.whl",
+    "pandas (>=2.2.3,<3.0.0)",
+    "fastapi (>=0.115.11,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "jinja2 (>=3.1.6,<4.0.0)"
+]
+
+[tool.poetry]
+packages = [
+    { include = "solana_crawler" }
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.10"
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "N",  # PEP8 naming conventions
+    "D"   # pydocstyle
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+crawler = "solana_crawler.crawler:main"
+
