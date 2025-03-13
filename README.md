@@ -1,8 +1,5 @@
 # Solana Crawler
-<img src="./assets/cover.jpg">
-<br><br>
 <img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/paoloechoes/solana-crawler?label=version&color=green">
-<br><br>
 
 This project provides a tool to visualize Solana account transactions. It fetches transaction data for a given Solana address and displays it as a network graph which can be recursevly explored.
 
